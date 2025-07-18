@@ -6,6 +6,10 @@ from utils.image_utils import save_image
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
+@app.route("/", methods=["GET"])
+def home():
+    return "✅ Palmistry AI backend is running. Use POST /predict with an image."
+
 @app.route('/predict', methods=['POST'])
 def predict():
     if 'image' not in request.files:
