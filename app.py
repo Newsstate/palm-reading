@@ -10,7 +10,7 @@ app.config['UPLOAD_FOLDER'] = 'static/uploads'
 def home():
     return "✅ Palmistry AI backend is running. Use POST /predict with an image."
 
-@app.route('/predict', methods=['POST'])
+@app.route("/predict", methods=["POST"])
 def predict():
     if 'image' not in request.files:
         return jsonify({'error': 'No image uploaded'}), 400
@@ -26,5 +26,5 @@ def predict():
         'prediction': prediction
     })
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
