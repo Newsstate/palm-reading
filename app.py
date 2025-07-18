@@ -5,6 +5,7 @@ from palmistry.rule_mapper import map_features_to_prediction
 from utils.image_utils import save_image
 
 app = Flask(__name__)
+CORS(app, origins="https://www.asthaguru.com")  # Allow only your WordPress frontend
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
 # Enable CORS only for your WordPress domain yes
