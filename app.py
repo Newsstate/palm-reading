@@ -7,7 +7,7 @@ from utils.image_utils import save_image
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
-# Enable CORS only for your WordPress domain
+# Enable CORS only for your WordPress domain yes
 CORS(app, resources={r"/predict": {"origins": "https://www.asthaguru.com"}})
 
 @app.route("/", methods=["GET"])
