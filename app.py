@@ -1,10 +1,14 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from palmistry.detector import detect_lines
 from palmistry.rule_mapper import map_features_to_prediction
 from utils.image_utils import save_image
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
+
+# Enable CORS only for your WordPress domain
+CORS(app, resources={r"/predict": {"origins": "https://www.asthaguru.com"}})
 
 @app.route("/", methods=["GET"])
 def home():
